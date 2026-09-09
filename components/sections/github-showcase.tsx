@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { useI18n } from "@/lib/i18n";
@@ -87,8 +88,10 @@ export function GithubShowcase() {
   ];
 
   return (
-    <section id="github" className="py-24 px-4 sm:px-6 bg-zinc-100/50 dark:bg-[#080d19]/40 border-y border-zinc-200/80 dark:border-white/[0.06]">
-      <div className="max-w-6xl mx-auto">
+    <section id="github" className="py-24 px-4 sm:px-6 bg-zinc-100/50 dark:bg-[#080d19]/40 border-y border-zinc-200/80 dark:border-white/[0.06] relative overflow-hidden">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-blue-500/5 blur-3xl pointer-events-none rounded-full" />
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -111,7 +114,7 @@ export function GithubShowcase() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 text-white dark:bg-white/[0.08] hover:bg-zinc-800 dark:hover:bg-white/[0.14] font-mono text-xs font-semibold transition-all border border-transparent dark:border-white/10 self-start md:self-auto shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 text-white dark:bg-white/[0.08] hover:bg-zinc-800 dark:hover:bg-white/[0.14] font-mono text-xs font-semibold transition-all border border-transparent dark:border-white/10 self-start md:self-auto shadow-sm hover:shadow-cyan-500/20 active:scale-95"
           >
             <Github className="w-4 h-4" />
             <span>github.com/TranHoDuyAnh</span>
@@ -122,12 +125,16 @@ export function GithubShowcase() {
         {/* Repositories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {repos.map((repo, idx) => (
-            <a
+            <motion.a
               key={idx}
               href={repo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl glass-card border border-zinc-200 dark:border-white/[0.08] hover:border-cyan-500/50 flex flex-col justify-between transition-all"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              className="group p-6 rounded-2xl glass-card card-hover-glow border border-zinc-200 dark:border-white/[0.08] hover:border-cyan-500/50 flex flex-col justify-between transition-all"
             >
               <div>
                 <div className="flex items-start justify-between mb-3 gap-3">
@@ -154,7 +161,7 @@ export function GithubShowcase() {
                   <span>{repo.branch}</span>
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -19,8 +20,10 @@ export function Experience() {
   const { t } = useI18n();
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-24 px-4 sm:px-6 relative overflow-hidden">
+      {/* Ambient background accent */}
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500/5 blur-3xl pointer-events-none rounded-full" />
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-left mb-16">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-widest mb-2 font-semibold">
@@ -39,7 +42,7 @@ export function Experience() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Left 7 cols: Work Experience Timeline */}
+          {/* Left 8 cols: Work Experience Timeline */}
           <div className="lg:col-span-8 space-y-8">
             <h3 className="font-mono text-xs uppercase tracking-wider text-zinc-500 font-bold flex items-center gap-2">
               <Building className="w-4 h-4 text-cyan-500" />
@@ -48,7 +51,14 @@ export function Experience() {
 
             <div className="relative border-l-2 border-zinc-200 dark:border-white/10 pl-6 sm:pl-8 space-y-12">
               {profile.experience.map((job, idx) => (
-                <div key={idx} className="relative group">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -25 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative group"
+                >
                   {/* Timeline dot */}
                   <span className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full border-2 border-cyan-500 bg-white dark:bg-zinc-950 group-hover:scale-125 group-hover:bg-cyan-500 transition-all shadow-xs" />
 
@@ -97,7 +107,7 @@ export function Experience() {
                       </div>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -110,7 +120,13 @@ export function Experience() {
             </h3>
 
             {/* University Card */}
-            <div className="p-6 rounded-2xl glass-card border border-zinc-200 dark:border-white/[0.08]">
+            <motion.div
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="p-6 rounded-2xl glass-card card-hover-glow border border-zinc-200 dark:border-white/[0.08]"
+            >
               <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
                 <GraduationCap className="w-5 h-5" />
               </div>
@@ -142,10 +158,16 @@ export function Experience() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
 
             {/* Languages Card */}
-            <div className="p-6 rounded-2xl glass-card border border-zinc-200 dark:border-white/[0.08]">
+            <motion.div
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="p-6 rounded-2xl glass-card card-hover-glow border border-zinc-200 dark:border-white/[0.08]"
+            >
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
                 <Languages className="w-5 h-5" />
               </div>
@@ -158,7 +180,7 @@ export function Experience() {
                 {profile.spokenLanguages.map((langItem, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200/80 dark:border-white/5 flex items-center justify-between text-xs font-mono"
+                    className="p-3 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200/80 dark:border-white/5 flex items-center justify-between text-xs font-mono hover:border-cyan-500/40 transition-colors"
                   >
                     <span className="font-bold text-zinc-800 dark:text-zinc-200">
                       {t(langItem.language)}
@@ -169,7 +191,7 @@ export function Experience() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

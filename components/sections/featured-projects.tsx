@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects, ProjectData } from "@/data/projects";
 import { useI18n } from "@/lib/i18n";
 import { CaseStudyModal } from "./case-study-modal";
@@ -45,6 +46,13 @@ export function FeaturedProjects() {
     return { en: "Resident Portal", vi: "Cổng Cư Dân" };
   };
 
+  const tabs = [
+    { id: "all", label: { en: "All (6)", vi: "Tất cả (6)" } },
+    { id: "saas", label: { en: "SaaS & AI", vi: "SaaS & AI" } },
+    { id: "systems", label: { en: "Systems & IoT", vi: "Hệ Thống & IoT" } },
+    { id: "commerce", label: { en: "E-Commerce & BaaS", vi: "Thương Mại & BaaS" } },
+  ];
+
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 relative">
       {/* Background glow accents */}
@@ -70,35 +78,44 @@ export function FeaturedProjects() {
             </p>
           </div>
 
-          {/* Filter Pills */}
+          {/* Filter Pills with Animated Sliding Indicator */}
           <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-100 dark:bg-white/[0.04] border border-zinc-200 dark:border-white/10 self-start md:self-auto font-mono text-xs">
-            {[
-              { id: "all", label: { en: "All (6)", vi: "Tất cả (6)" } },
-              { id: "saas", label: { en: "SaaS & AI", vi: "SaaS & AI" } },
-              { id: "systems", label: { en: "Systems & IoT", vi: "Hệ Thống & IoT" } },
-              { id: "commerce", label: { en: "E-Commerce & BaaS", vi: "Thương Mại & BaaS" } },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setFilter(tab.id)}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
-                  filter === tab.id
-                    ? "bg-white dark:bg-white/10 text-zinc-900 dark:text-white font-semibold shadow-xs"
-                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
-                }`}
-              >
-                {t(tab.label)}
-              </button>
-            ))}
+            {tabs.map((tab) => {
+              const isActive = filter === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setFilter(tab.id)}
+                  className={`relative px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                    isActive
+                      ? "text-zinc-900 dark:text-white font-semibold"
+                      : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeFeaturedFilter"
+                      className="absolute inset-0 bg-white dark:bg-white/10 rounded-lg shadow-xs"
+                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative z-10">{t(tab.label)}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Project Cards Grid */}
         <div className="space-y-12">
-          {filteredProjects.map((project) => (
-            <div
+          {filteredProjects.map((project, pIdx) => (
+            <motion.div
               key={project.id}
-              className={`rounded-3xl glass-card overflow-hidden border p-6 sm:p-8 transition-all ${
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.55, delay: pIdx * 0.04, ease: [0.22, 1, 0.36, 1] }}
+              className={`rounded-3xl glass-card overflow-hidden border p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl dark:hover:shadow-cyan-500/10 hover:border-cyan-500/40 ${
                 project.featuredRank <= 2
                   ? "border-zinc-300 dark:border-white/[0.15] bg-gradient-to-b from-white/95 to-white/70 dark:from-zinc-900/90 dark:to-zinc-950/90 shadow-md"
                   : "border-zinc-200 dark:border-white/[0.08]"
@@ -273,7 +290,7 @@ export function FeaturedProjects() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -50,7 +51,13 @@ export function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left info */}
-          <div className="lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5"
+          >
             <div className="inline-flex items-center gap-2 font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-widest mb-2 font-semibold">
               <Terminal className="w-3.5 h-3.5" />
               <span>{t({ en: "Direct Communication", vi: "Kết Nối Trực Tiếp" })}</span>
@@ -174,10 +181,16 @@ export function Contact() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right contact form */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
+          >
             <form
               onSubmit={handleSendMessage}
               className="p-6 sm:p-8 rounded-3xl glass-card border border-zinc-200 dark:border-white/10 shadow-lg space-y-4"
@@ -247,7 +260,7 @@ export function Contact() {
                 </span>
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ProjectData } from "@/data/projects";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -70,7 +71,11 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/75 backdrop-blur-md animate-fade-in overflow-y-auto">
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.94, y: 15 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-full max-w-4xl bg-white dark:bg-[#0c1220] border border-zinc-200 dark:border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl my-auto max-h-[90vh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
@@ -484,7 +489,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             {t({ en: "Close Case Study", vi: "Đóng cửa sổ" })}
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

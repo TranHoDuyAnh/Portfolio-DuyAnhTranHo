@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import {
   Layers,
@@ -68,8 +69,10 @@ export function EngineeringPhilosophy() {
   ];
 
   return (
-    <section id="architecture" className="py-24 px-4 sm:px-6 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="architecture" className="py-24 px-4 sm:px-6 relative overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-teal-500/5 blur-3xl pointer-events-none rounded-full" />
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-widest mb-2 font-semibold">
@@ -93,9 +96,13 @@ export function EngineeringPhilosophy() {
         {/* 4 Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {principles.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl glass-card border border-zinc-200 dark:border-white/[0.08] flex flex-col justify-between"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="p-6 sm:p-7 rounded-2xl glass-card card-hover-glow border border-zinc-200 dark:border-white/[0.08] flex flex-col justify-between"
             >
               <div>
                 <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/10 flex items-center justify-center mb-4">
@@ -113,7 +120,7 @@ export function EngineeringPhilosophy() {
               <div className="px-3.5 py-2 rounded-lg bg-zinc-100 dark:bg-black/40 border border-zinc-200/80 dark:border-white/5 font-mono text-[11px] text-zinc-700 dark:text-cyan-300/90 overflow-x-auto">
                 <code>{item.codeSnippet}</code>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
