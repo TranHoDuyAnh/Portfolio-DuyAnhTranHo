@@ -30,7 +30,8 @@ export function FeaturedProjects() {
     if (filter === "all") return true;
     if (filter === "saas") return p.id === "creatoros" || p.id === "adaptivelms";
     if (filter === "systems") return p.id === "pulse" || p.id === "ev-battery-swap";
-    if (filter === "commerce") return p.id === "tiemnguoiquang" || p.id === "shi-perfume";
+    if (filter === "commerce") return p.id === "tiemnguoiquang" || p.id === "shi-perfume" || p.id === "moonbean-coffee";
+    if (filter === "wellness") return p.id === "dental-clinic-tam-anh" || p.id === "lumea-spa";
     return true;
   });
 
@@ -47,10 +48,11 @@ export function FeaturedProjects() {
   };
 
   const tabs = [
-    { id: "all", label: { en: "All (6)", vi: "Tất cả (6)" } },
+    { id: "all", label: { en: "All (9)", vi: "Tất cả (9)" } },
     { id: "saas", label: { en: "SaaS & AI", vi: "SaaS & AI" } },
     { id: "systems", label: { en: "Systems & IoT", vi: "Hệ Thống & IoT" } },
-    { id: "commerce", label: { en: "E-Commerce & BaaS", vi: "Thương Mại & BaaS" } },
+    { id: "commerce", label: { en: "F&B & Commerce", vi: "F&B & Thương Mại" } },
+    { id: "wellness", label: { en: "Healthcare & Spa", vi: "Y Tế & Spa" } },
   ];
 
   return (

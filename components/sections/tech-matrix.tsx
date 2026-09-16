@@ -20,7 +20,17 @@ export function TechMatrix() {
   const { t } = useI18n();
   const [selectedProjectFilter, setSelectedProjectFilter] = useState<string>("all");
 
-  const projectList = ["CreatorOS", "Pulse", "AdaptiveLMS", "Tiệm Người Quảng", "Shi-Perfume", "EV Battery Swap"];
+  const projectList = [
+    "CreatorOS",
+    "Pulse",
+    "AdaptiveLMS",
+    "Tiệm Người Quảng",
+    "Shi-Perfume",
+    "EV Battery Swap",
+    "Moonbean Coffee",
+    "Nha Khoa Tâm Anh",
+    "Luméa Spa",
+  ];
 
   return (
     <section id="skills" className="py-24 px-4 sm:px-6 bg-zinc-100/50 dark:bg-[#080d19]/40 border-y border-zinc-200/80 dark:border-white/[0.06] relative overflow-hidden">
@@ -39,8 +49,8 @@ export function TechMatrix() {
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2 max-w-xl">
               {t({
-                en: "Every technology listed is tied to hands-on deployment experience across 6 production codebases.",
-                vi: "Mỗi công nghệ trong danh sách đều gắn với kinh nghiệm triển khai thực tế trong 6 codebase.",
+                en: "Every technology listed is tied to hands-on deployment experience across 9 production codebases.",
+                vi: "Mỗi công nghệ trong danh sách đều gắn với kinh nghiệm triển khai thực tế trong 9 codebase.",
               })}
             </p>
           </div>

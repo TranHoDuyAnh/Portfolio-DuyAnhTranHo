@@ -1334,4 +1334,531 @@ export const projects: ProjectData[] = [
       github: "https://github.com/TranHoDuyAnh/EvBatterySwapStationManagementSystem",
     },
   },
+  {
+    id: "moonbean-coffee",
+    name: "Moonbean Coffee",
+    slug: "moonbean-coffee",
+    featured: true,
+    featuredRank: 7,
+    image: "/projects/Moonbean.png",
+    screenshots: [
+      {
+        url: "/projects/Moonbean.png",
+        role: "default",
+        title: {
+          en: "Moonbean Coffee Editorial Storefront & Menu",
+          vi: "Giao Diện Moonbean Coffee & Thực Đơn Editorial",
+        },
+        description: {
+          en: "Editorial F&B showcase featuring dynamic category filtering, interactive table reservations, and containerized PostgreSQL database.",
+          vi: "Trải nghiệm F&B mang phong cách Editorial với lọc danh mục realtime, đặt bàn trực tuyến và cơ sở dữ liệu PostgreSQL trong Docker.",
+        },
+      },
+    ],
+    badge: {
+      en: "Editorial F&B Platform",
+      vi: "Nền Tảng F&B Editorial",
+    },
+    category: {
+      en: "Full-Stack Web & Reservation System",
+      vi: "Full-Stack Web & Hệ Thống Đặt Bàn",
+    },
+    shortDescription: {
+      en: "Specialty coffee shop platform featuring real-time menu filtering, instant table reservations, and an administrative CMS operating 100% offline via Docker.",
+      vi: "Nền tảng thương hiệu cà phê specialty với lọc thực đơn thời gian thực, đặt bàn thông minh và cổng quản trị CMS vận hành 100% local qua Docker.",
+    },
+    overview: {
+      en: "Moonbean Coffee is a production-quality F&B demo platform engineered for Shi Studio under the motto 'Good coffee. Slow moments.' It brings an editorial digital dining experience with real-time menu search across five categories, online reservation handling with instant confirmation codes, and a full-featured admin dashboard backed by PostgreSQL 16 and Prisma ORM 5.",
+      vi: "Moonbean Coffee là nền tảng F&B chất lượng cao được thiết kế và phát triển cho Shi Studio với tinh thần 'Good coffee. Slow moments.' Hệ thống mang đến trải nghiệm số thanh lịch với tính năng lọc thực đơn thời gian thực trên 5 danh mục, đặt bàn trực tuyến cấp mã xác nhận tức thì, và cổng quản trị CMS toàn diện trên nền tảng PostgreSQL 16 và Prisma ORM 5.",
+    },
+    problem: {
+      en: "Artisanal specialty coffee shops often rely on third-party social pages or slow generic CMS builders that cannot offer smooth editorial typography, instant category browsing, or a dedicated table reservation pipeline with guest capacity and operational status tracking.",
+      vi: "Các quán cà phê specialty thường phụ thuộc vào fanpage hoặc các CMS dựng sẵn nặng nề, không thể hiện được tính thẩm mỹ thương hiệu, thiếu khả năng duyệt thực đơn siêu tốc và không có luồng đặt bàn tùy biến với số lượng khách và quản trị bàn tập trung.",
+    },
+    solution: {
+      en: "Architected a high-performance Next.js 15 App Router solution with Server Actions for zero-overhead booking mutations, client-side category filtering, and a secure admin CMS secured via HTTP-only JWT cookies to handle booking confirmations and menu availability in real time.",
+      vi: "Xây dựng giải pháp Next.js 15 App Router hiệu năng cao kết hợp Server Actions để xử lý đặt bàn trực tiếp vào PostgreSQL, lọc thực đơn tức thì phía client, và cổng Admin CMS bảo mật bằng HTTP-only JWT cookie cho phép duyệt lịch đặt bàn và quản lý thực đơn tức thì.",
+    },
+    architecture: {
+      overview: {
+        en: "Full-stack Next.js 15 monolithic architecture with Server Actions, Prisma ORM 5 data access layer, and PostgreSQL 16 containerized with Docker Compose for seamless 100% local offline execution.",
+        vi: "Kiến trúc Next.js 15 full-stack với Server Actions, tầng truy xuất dữ liệu Prisma ORM 5 và PostgreSQL 16 container hóa bằng Docker Compose đảm bảo chạy 100% offline mượt mà.",
+      },
+      diagram: `
++------------------------------------------------------------------------+
+|                      CLIENT / BROWSER RUNTIME                          |
+|  Next.js 15 App Router | Editorial Typography | Realtime Filter UI     |
++------------------------------------------------------------------------+
+                                |
+             +------------------+------------------+
+             |                                     |
+   [Client Actions / Form]              [Admin Management / JWT]
+             |                                     |
+             v                                     v
++------------------------------------------------------------------------+
+|                       SERVER & API LAYER                               |
+|  Next.js Server Actions | Jose JWT Auth | Bcrypt Password Security     |
++------------------------------------------------------------------------+
+                                |
+                                v
++------------------------------------------------------------------------+
+|                       PRISMA ORM 5 LAYER                               |
+|  Type-Safe Repositories: Category, MenuItem, Booking, ContactMessage   |
++------------------------------------------------------------------------+
+                                |
+                                v
++------------------------------------------------------------------------+
+|                     DOCKERIZED POSTGRESQL 16                           |
+|  Healthcheck | Automated Schema Migration | Production Seed Data       |
++------------------------------------------------------------------------+
+`,
+      highlights: [
+        {
+          en: "Next.js 15 App Router with Server Actions handling reservations directly into PostgreSQL with atomic status management.",
+          vi: "Next.js 15 App Router với Server Actions xử lý đặt bàn trực tiếp vào PostgreSQL với quản lý trạng thái đơn bàn.",
+        },
+        {
+          en: "Secure Admin CMS with bcrypt password hashing and HTTP-Only JWT cookies via Jose library.",
+          vi: "Cổng Admin CMS bảo mật với băm mật khẩu bcrypt và JWT cookie HTTP-Only qua thư viện Jose.",
+        },
+        {
+          en: "Zero cloud dependencies: completely containerized via Docker Compose with automated healthcheck and database seeding.",
+          vi: "Không phụ thuộc cloud: container hóa toàn diện với Docker Compose kèm healthcheck tự động và seed dữ liệu chuẩn.",
+        },
+      ],
+    },
+    keyFeatures: [
+      {
+        title: {
+          en: "Real-Time Menu Explorer",
+          vi: "Khám Phá Thực Đơn Real-Time",
+        },
+        description: {
+          en: "Instant client-side categorization (Coffee, Non-Coffee, Tea, Bakery, Dessert) with keyword search, bestseller tags, and dynamic single-item pages.",
+          vi: "Bộ lọc danh mục tức thì (Coffee, Non-Coffee, Tea, Bakery, Dessert) kết hợp tìm kiếm từ khóa, huy hiệu Bestseller và trang chi tiết món động.",
+        },
+      },
+      {
+        title: {
+          en: "Smart Online Table Reservation",
+          vi: "Đặt Bàn Trực Tuyến Thông Minh",
+        },
+        description: {
+          en: "Interactive booking form with date/time pickers, guest count validation, special requests, and instant booking ID generation.",
+          vi: "Form đặt bàn tương tác chọn ngày giờ, kiểm tra số lượng khách, ghi chú yêu cầu riêng và cấp mã số đặt bàn tức thì.",
+        },
+      },
+      {
+        title: {
+          en: "Administrative Control Center",
+          vi: "Bảng Điều Khiển Quản Trị Viên",
+        },
+        description: {
+          en: "Admin dashboard featuring booking status transitions (Pending, Confirmed, Completed, Cancelled), menu item CRUD with price and availability toggles, and contact inquiry tracking.",
+          vi: "Dashboard quản trị hỗ trợ chuyển đổi trạng thái bàn (Chờ duyệt, Đã xác nhận, Hoàn tất, Hủy), CRUD thực đơn kèm bật/tắt Bestseller và quản lý hòm thư.",
+        },
+      },
+    ],
+    technicalHighlights: [
+      {
+        en: "Prisma ORM 5 relational schema modeling Categories, MenuItems, Bookings, and ContactMessages with automated cascade behaviors.",
+        vi: "Schema quan hệ Prisma ORM 5 mô hình hóa Danh mục, Món ăn, Lịch đặt bàn và Tin nhắn liên hệ với hành vi cascade tự động.",
+      },
+      {
+        en: "Sub-second cold-start performance through optimized Server Components and local static assets in Docker Compose.",
+        vi: "Thời gian phản hồi tức thì nhờ tối ưu hóa Server Components và toàn bộ static assets cục bộ trong Docker Compose.",
+      },
+    ],
+    challenges: [
+      {
+        challenge: {
+          en: "Eliminating reliance on external cloud storage or SaaS databases for offline client demonstrations.",
+          vi: "Loại bỏ hoàn toàn sự phụ thuộc vào cloud storage hoặc database SaaS để demo offline cho khách hàng.",
+        },
+        resolution: {
+          en: "Constructed a Docker Compose multi-service architecture coordinating PostgreSQL 16 with healthcheck triggers and automatic database migration / seed scripts.",
+          vi: "Thiết kế kiến trúc đa dịch vụ trên Docker Compose điều phối PostgreSQL 16 với healthcheck và script tự động migration/seed dữ liệu.",
+        },
+      },
+    ],
+    learnings: [
+      {
+        en: "Deepened expertise in Next.js Server Actions for full-stack data mutation patterns without boilerplate API route handlers.",
+        vi: "Nâng cao kỹ năng khai thác Server Actions trong Next.js để mutation dữ liệu trực tiếp mà không cần viết boilerplate API routes.",
+      },
+    ],
+    techStack: [
+      {
+        category: { en: "Frontend & Design", vi: "Frontend & Thiết Kế" },
+        items: ["Next.js 15 (App Router)", "React 18", "Tailwind CSS", "Lucide React", "Framer Motion"],
+      },
+      {
+        category: { en: "Backend & Database", vi: "Backend & Cơ Sở Dữ Liệu" },
+        items: ["Next.js Server Actions", "PostgreSQL 16", "Prisma ORM 5", "Jose (JWT)", "Bcryptjs"],
+      },
+      {
+        category: { en: "DevOps & Infrastructure", vi: "DevOps & Hạ Tầng" },
+        items: ["Docker", "Docker Compose", "Multi-stage Builds", "TypeScript Strict"],
+      },
+    ],
+    myRole: {
+      en: "Full-Stack Web Developer & UI Designer — Built the editorial storefront, created the Next.js Server Actions booking engine, architected the Prisma database schema, and containerized the system with Docker Compose.",
+      vi: "Kỹ sư Full-Stack & UI Designer — Xây dựng giao diện phong cách editorial, phát triển engine đặt bàn bằng Server Actions, thiết kế schema Prisma và đóng gói hệ thống bằng Docker Compose.",
+    },
+    links: {
+      github: "https://github.com/TranHoDuyAnh/Moonbean-Coffee",
+    },
+  },
+  {
+    id: "dental-clinic-tam-anh",
+    name: "Nha Khoa Tâm Anh",
+    slug: "dental-clinic-tam-anh",
+    featured: true,
+    featuredRank: 8,
+    image: "/projects/TamAnh.png",
+    screenshots: [
+      {
+        url: "/projects/TamAnh.png",
+        role: "default",
+        title: {
+          en: "Tâm Anh Dental Clinic Healthcare Portal",
+          vi: "Cổng Thông Tin Phòng Khám Nha Khoa Tâm Anh",
+        },
+        description: {
+          en: "Medical-grade healthcare platform featuring 2-way clinical appointment scheduling, doctor specialty profiles, and comprehensive admin CMS.",
+          vi: "Nền tảng y tế chuẩn mực với quy trình đặt lịch 2 chiều, hồ sơ bác sĩ chuyên khoa và hệ thống quản trị lâm sàng.",
+        },
+      },
+    ],
+    badge: {
+      en: "Healthcare UX & Clinical CMS",
+      vi: "Healthcare UX & CMS Lâm Sàng",
+    },
+    category: {
+      en: "Full-Stack Healthcare System",
+      vi: "Hệ Thống Y Tế & Quản Lý Khám Chữa Bệnh",
+    },
+    shortDescription: {
+      en: "Production-quality healthcare clinic platform featuring 2-way appointment scheduling, doctor matching, medical disclaimers, and comprehensive admin CMS.",
+      vi: "Nền tảng phòng khám nha khoa chuẩn mực y tế với đặt lịch 2 chiều, phân bổ bác sĩ chuyên khoa, bảo mật dữ liệu và cổng quản trị CMS toàn diện.",
+    },
+    overview: {
+      en: "Nha Khoa Tâm Anh is a medical-grade healthcare digital platform developed for Shi Studio to demonstrate modern Healthcare UX/UI and robust full-stack engineering. It adheres strictly to medical digital guidelines with transparent service pricing, specialized doctor rosters with clinical backgrounds, and an interactive 2-way booking workflow.",
+      vi: "Nha Khoa Tâm Anh là nền tảng chuyển đổi số y tế chuẩn mực được phát triển cho Shi Studio nhằm trình diễn năng lực thiết kế UX/UI Healthcare và kỹ thuật lập trình full-stack cao cấp. Dự án tuân thủ nghiêm ngặt quy tắc minh bạch y tế với bảng giá niêm yết, hồ sơ bác sĩ chuyên khoa và quy trình đặt khám 2 chiều thông minh.",
+    },
+    problem: {
+      en: "Patients seeking dental care require high levels of trust, detailed procedural steps, and transparent pricing. Traditional clinic websites lack interactive doctor scheduling, allow double-booking, and do not provide doctors with real-time appointment dashboards.",
+      vi: "Bệnh nhân nha khoa đòi hỏi mức độ tin cậy cao, quy trình điều trị rõ ràng và chi phí minh bạch. Các website phòng khám truyền thống thiếu tính năng đối soát lịch bác sĩ, dễ bị trùng lịch và không có dashboard cập nhật trạng thái bệnh nhân thời gian thực.",
+    },
+    solution: {
+      en: "Engineered a reliable Next.js 15.1.7 and React 19 web application backed by Prisma ORM 6.4.1 and PostgreSQL 16. Implemented a 2-way booking engine (select treatment -> match specialized doctor, or select doctor -> choose corresponding service), protected inputs with Zod validation, and created an Admin CMS with Web Crypto API HMAC-SHA256 session authentication.",
+      vi: "Phát triển ứng dụng Next.js 15.1.7 và React 19 tin cậy kết nối Prisma ORM 6.4.1 trên PostgreSQL 16. Triển khai luồng đặt lịch 2 chiều thông minh (chọn dịch vụ -> gợi ý bác sĩ hoặc chọn bác sĩ -> chọn dịch vụ chuyên môn), bảo vệ dữ liệu bằng Zod và cổng quản trị Admin bảo mật bằng HMAC-SHA256 phiên đăng nhập.",
+    },
+    architecture: {
+      overview: {
+        en: "Server-driven Next.js 15 architecture utilizing React 19 Server Components, Zod schema validation across client and server boundaries, and PostgreSQL 16 Alpine with Prisma ORM 6.",
+        vi: "Kiến trúc Server-driven trên Next.js 15 tận dụng React 19 Server Components, xác thực Zod hai đầu client-server và cơ sở dữ liệu PostgreSQL 16 Alpine qua Prisma ORM 6.",
+      },
+      diagram: `
++------------------------------------------------------------------------+
+|                     HEALTHCARE CLIENT INTERFACE                        |
+|  Next.js 15.1.7 | React 19 | Tailwind CSS | Medical Compliance Guard   |
++------------------------------------------------------------------------+
+                                |
+             +------------------+------------------+
+             |                                     |
+   [2-Way Booking Engine]                [Admin Clinical CMS]
+   Service <-> Doctor Matching            HMAC-SHA256 Web Crypto Session
+             |                                     |
+             v                                     v
++------------------------------------------------------------------------+
+|                   SERVER ACTIONS & ZOD VALIDATION                      |
+|  Appointment State Machine | Doctor Schedule Conflict Resolution       |
++------------------------------------------------------------------------+
+                                |
+                                v
++------------------------------------------------------------------------+
+|                         PRISMA ORM 6.4.1                               |
+|  Relational Entities: Service, Doctor, Booking, ContactLead, FAQ       |
++------------------------------------------------------------------------+
+                                |
+                                v
++------------------------------------------------------------------------+
+|                     DOCKERIZED POSTGRESQL 16                           |
+|  Multi-stage Containerization | Resilient Data Volumes                 |
++------------------------------------------------------------------------+
+`,
+      highlights: [
+        {
+          en: "Strict medical compliance: required medical disclaimers on pricing, service procedures, and prescription advice.",
+          vi: "Tuân thủ nghiêm ngặt quy tắc y tế: disclaimer y khoa bắt buộc trên bảng giá, quy trình thủ thuật và khuyến cáo.",
+        },
+        {
+          en: "Two-way clinical appointment scheduling matching patient treatments to qualified dental specialists.",
+          vi: "Quy trình đặt lịch 2 chiều thông minh liên kết chính xác dịch vụ nha khoa với bác sĩ chuyên khoa phụ trách.",
+        },
+        {
+          en: "Native session authentication using Web Crypto API HMAC-SHA256 with HTTP-only cookies and bcryptjs password hashing.",
+          vi: "Phiên đăng nhập Native với Web Crypto API HMAC-SHA256, cookie HTTP-only và băm mật khẩu bằng bcryptjs.",
+        },
+      ],
+    },
+    keyFeatures: [
+      {
+        title: {
+          en: "2-Way Intelligent Booking Flow",
+          vi: "Quy Trình Đặt Khám 2 Chiều Thông Minh",
+        },
+        description: {
+          en: "Allows patients to book by procedure or by preferred doctor, with past-date blocking and dynamic consultation slot selection.",
+          vi: "Cho phép bệnh nhân đặt lịch theo dịch vụ điều trị hoặc theo bác sĩ phụ trách, tự động chặn ngày quá khứ và chọn slot giờ khám linh hoạt.",
+        },
+      },
+      {
+        title: {
+          en: "Specialist Doctor Profiles",
+          vi: "Hồ Sơ Bác Sĩ Chuyên Khoa",
+        },
+        description: {
+          en: "Detailed profiles highlighting clinical experience, university credentials, specialties (implant, orthodontics, cosmetic), and weekly schedules.",
+          vi: "Hồ sơ chuyên môn chi tiết thể hiện kinh nghiệm lâm sàng, quá trình đào tạo, chuyên khoa (implant, chỉnh nha, thẩm mỹ) và lịch khám cố định.",
+        },
+      },
+      {
+        title: {
+          en: "Clinical Admin Dashboard",
+          vi: "Trung Tâm Quản Trị Phòng Khám",
+        },
+        description: {
+          en: "Full operations CMS managing appointment statuses (PENDING, CONFIRMED, COMPLETED, CANCELLED), patient leads, service catalogs, and doctor availability.",
+          vi: "CMS vận hành quản lý vòng đời lịch khám (Chờ duyệt, Đã xác nhận, Hoàn tất, Đã hủy), tin nhắn tư vấn, danh mục dịch vụ và trạng thái nhận lịch bác sĩ.",
+        },
+      },
+    ],
+    technicalHighlights: [
+      {
+        en: "Strict Zod validation schemas enforcing sanitized phone numbers, valid emails, and boundary constraints on all patient submissions.",
+        vi: "Hệ thống schema Zod kiểm tra chặt chẽ số điện thoại, định dạng email và ràng buộc dữ liệu đầu vào của bệnh nhân.",
+      },
+      {
+        en: "Prisma 6.4.1 schema with cascading relationships and foreign key constraints between Services, Doctors, and Bookings.",
+        vi: "Schema Prisma 6.4.1 với quan hệ khóa ngoại và ràng buộc chặt chẽ giữa Dịch vụ, Bác sĩ và Lịch hẹn khám.",
+      },
+    ],
+    challenges: [
+      {
+        challenge: {
+          en: "Structuring clinical appointment states to prevent doctor scheduling conflicts without external calendaring APIs.",
+          vi: "Thiết kế máy trạng thái lịch hẹn lâm sàng tránh xung đột lịch bác sĩ mà không cần phụ thuộc vào API lịch bên ngoài.",
+        },
+        resolution: {
+          en: "Implemented an appointment state-machine in PostgreSQL via Server Actions that locks time slots and updates booking status atomically.",
+          vi: "Xây dựng máy trạng thái lịch hẹn trên PostgreSQL qua Server Actions giúp khóa slot giờ khám và cập nhật trạng thái nguyên tử.",
+        },
+      },
+    ],
+    learnings: [
+      {
+        en: "Gained practical experience designing healthcare-grade UX with clean blue medical color palettes, accessibility, and legal disclaimers.",
+        vi: "Tích lũy kinh nghiệm thiết kế UX chuyên ngành y tế với bảng màu tin cậy, tính tiện dụng cao và các khuyến cáo pháp lý y khoa.",
+      },
+    ],
+    techStack: [
+      {
+        category: { en: "Frontend & Styling", vi: "Frontend & Giao Diện" },
+        items: ["Next.js 15.1.7", "React 19", "Tailwind CSS", "Lucide React", "TypeScript Strict"],
+      },
+      {
+        category: { en: "Backend & Logic", vi: "Backend & Logic Nghiệp Vụ" },
+        items: ["Next.js Server Actions", "Zod 3.24.2", "Web Crypto API (HMAC-SHA256)", "Bcryptjs"],
+      },
+      {
+        category: { en: "Database & DevOps", vi: "Cơ Sở Dữ Liệu & DevOps" },
+        items: ["PostgreSQL 16 Alpine", "Prisma ORM 6.4.1", "Docker", "Docker Compose"],
+      },
+    ],
+    myRole: {
+      en: "Full-Stack Healthcare Engineer & UX Architect — Designed the medical layout, developed the 2-way clinical appointment engine, implemented Zod validation and native HMAC session security, and containerized the deployment.",
+      vi: "Kỹ sư Full-Stack & Kiến trúc sư UX Y tế — Thiết kế giao diện y tế chuẩn mực, phát triển engine đặt khám 2 chiều, tích hợp Zod validation và phiên bảo mật HMAC-SHA256, đóng gói triển khai trên Docker.",
+    },
+    links: {
+      github: "https://github.com/TranHoDuyAnh/DentalClinic-TamAnh",
+    },
+  },
+  {
+    id: "lumea-spa",
+    name: "Luméa Spa",
+    slug: "lumea-spa",
+    featured: true,
+    featuredRank: 9,
+    image: "/projects/Lumea.png",
+    screenshots: [
+      {
+        url: "/projects/Lumea.png",
+        role: "default",
+        title: {
+          en: "Luméa Luxury Spa & Wellness Experience",
+          vi: "Trải Nghiệm Spa & Trị Liệu Luméa Cao Cấp",
+        },
+        description: {
+          en: "Luxury wellness platform featuring treatment catalog, online session booking, and administrative dashboard powered by Next.js 15 and Framer Motion.",
+          vi: "Nền tảng trị liệu sức khỏe & làm đẹp cao cấp với danh mục dịch vụ chi tiết, đặt lịch chăm sóc trực tuyến và bảng điều khiển quản trị trên Next.js 15 và Framer Motion.",
+        },
+      },
+    ],
+    badge: {
+      en: "Luxury Wellness & Spa System",
+      vi: "Hệ Thống Trị Liệu & Spa Cao Cấp",
+    },
+    category: {
+      en: "Full-Stack Wellness & Booking",
+      vi: "Trị Liệu Sức Khỏe & Đặt Lịch Chăm Sóc",
+    },
+    shortDescription: {
+      en: "Editorial luxury spa & wellness platform featuring categorized treatment protocols, guest capacity scheduling, and comprehensive administrative oversight.",
+      vi: "Nền tảng spa & wellness sang trọng với danh mục phác đồ trị liệu chuẩn mực, đặt lịch trực tuyến theo số lượng khách và cổng quản trị chuyên nghiệp.",
+    },
+    overview: {
+      en: "Luméa Spa is a premium wellness and beauty care web platform designed for Shi Studio under the brand vision 'A softer way to feel yourself.' It delivers a serene editorial aesthetic with fluid Framer Motion animations, comprehensive treatment breakdowns including benefits and post-care routines, interactive appointment booking with guest capacity options, and a robust admin dashboard.",
+      vi: "Luméa Spa là nền tảng web trị liệu và chăm sóc sắc đẹp cao cấp được xây dựng cho Shi Studio với thông điệp 'A softer way to feel yourself.' Hệ thống kết hợp ngôn ngữ thiết kế Editorial mềm mại, hiệu ứng Framer Motion mượt mà, thông tin liệu trình chi tiết (lợi ích, quy trình, chỉ định sau điều trị), luồng đặt lịch thông minh và cổng quản trị chuyên sâu.",
+    },
+    problem: {
+      en: "Luxury spa patrons require clarity regarding treatment durations, therapeutic ingredients, and protocol steps before making an appointment. Off-the-shelf booking tools often feel mechanical and disrupt the serene brand experience.",
+      vi: "Khách hàng spa cao cấp luôn muốn tìm hiểu kỹ lưỡng về thời lượng, nguyên liệu và các bước trong phác đồ trị liệu trước khi đặt lịch. Các công cụ đặt lịch phổ thông thường thô ráp và làm giảm đi cảm xúc sang trọng của thương hiệu.",
+    },
+    solution: {
+      en: "Engineered a Next.js 15 and React 19 full-stack application featuring fluid page transitions with Framer Motion, an interactive treatment catalog with real-time filtering, structured array data fields in PostgreSQL via Prisma 6, and a secured JWT admin panel for managing bookings, staff, and wellness therapies.",
+      vi: "Xây dựng ứng dụng Next.js 15 & React 19 với chuyển động êm ái bằng Framer Motion, catalog trị liệu phân loại trực quan, trường dữ liệu mảng có cấu trúc trong PostgreSQL qua Prisma 6, và hệ thống Admin bảo mật bằng JWT quản lý đặt chỗ, chuyên viên và liệu trình.",
+    },
+    architecture: {
+      overview: {
+        en: "Modern Next.js 15 App Router architecture with Server Actions, Prisma ORM 6.1 data layer, Jose JWT authentication, and Docker Compose deployment.",
+        vi: "Kiến trúc Next.js 15 App Router hiện đại với Server Actions, tầng dữ liệu Prisma ORM 6.1, xác thực Jose JWT và đóng gói Docker Compose.",
+      },
+      diagram: `
++------------------------------------------------------------------------+
+|                     WELLNESS CLIENT INTERFACE                          |
+|  Next.js 15.1.3 | React 19 | Framer Motion | Editorial Luxury Styling  |
++------------------------------------------------------------------------+
+                                |
+             +------------------+------------------+
+             |                                     |
+   [Treatment Explorer]                  [Session Booking Flow]
+   Benefits / Steps / Aftercare           Guests / Date / Time Validation
+             |                                     |
+             v                                     v
++------------------------------------------------------------------------+
+|                   SERVER ACTIONS & ZOD ENGINE                          |
+|  Atomic Booking Insertion | Treatment CRUD | JWT Jose Authentication   |
++------------------------------------------------------------------------+
+                                |
+                                v
++------------------------------------------------------------------------+
+|                         PRISMA ORM 6.1.0                               |
+|  Models: Treatment (Arrays for benefits/process), Booking, Message     |
++------------------------------------------------------------------------+
+                                |
+                                v
++------------------------------------------------------------------------+
+|                     DOCKERIZED POSTGRESQL 16                           |
+|  Containerized Storage | Automated Healthcheck & Seeding               |
++------------------------------------------------------------------------+
+`,
+      highlights: [
+        {
+          en: "Editorial aesthetic elevated by Framer Motion micro-interactions and high-resolution wellness assets.",
+          vi: "Phong cách Editorial sang trọng được nâng tầm nhờ hiệu ứng chuyển động Framer Motion và tài nguyên hình ảnh chất lượng cao.",
+        },
+        {
+          en: "Structured array storage in PostgreSQL via Prisma 6 for treatment benefits, procedural steps, and aftercare guidance.",
+          vi: "Lưu trữ mảng có cấu trúc trong PostgreSQL qua Prisma 6 cho các mục lợi ích, quy trình thực hiện và lưu ý sau trị liệu.",
+        },
+        {
+          en: "Comprehensive Admin Management with JWT session handling, booking status pipeline, and treatment catalog CRUD.",
+          vi: "Bảng điều khiển quản trị toàn diện với phiên JWT, quy trình xử lý đơn đặt lịch và CRUD danh mục trị liệu.",
+        },
+      ],
+    },
+    keyFeatures: [
+      {
+        title: {
+          en: "Therapy & Treatment Catalog",
+          vi: "Catalog Phác Đồ Trị Liệu",
+        },
+        description: {
+          en: "Categorized treatments (Facial, Body Massage, Hydrotherapy, Signature Packages) detailing exact durations, pricing, suitability, and step-by-step procedures.",
+          vi: "Danh mục liệu trình (Chăm sóc da mặt, Massage toàn thân, Thủy liệu pháp, Gói Signature) hiển thị rõ thời lượng, chi phí, chỉ định và các bước thực hiện.",
+        },
+      },
+      {
+        title: {
+          en: "Seamless Session Booking",
+          vi: "Đặt Lịch Chăm Sóc Trực Tuyến",
+        },
+        description: {
+          en: "Intuitive appointment scheduling with guest capacity selector, preferred treatment linkage, date/time pickers, and health note submissions.",
+          vi: "Quy trình đặt lịch trực quan chọn số lượng khách, liên kết liệu trình mong muốn, chọn ngày giờ và ghi chú tình trạng sức khỏe.",
+        },
+      },
+      {
+        title: {
+          en: "Administrative Operations Suite",
+          vi: "Hệ Thống Vận Hành Quản Trị",
+        },
+        description: {
+          en: "Admin dashboard featuring booking status management (PENDING, CONFIRMED, COMPLETED, CANCELLED), treatment editor, team member rosters, and customer messages.",
+          vi: "Trang quản trị theo dõi trạng thái đơn đặt lịch (Chờ duyệt, Đã xác nhận, Hoàn tất, Hủy), chỉnh sửa liệu trình, danh sách chuyên viên và tin nhắn khách hàng.",
+        },
+      },
+    ],
+    technicalHighlights: [
+      {
+        en: "Utilized native PostgreSQL String arrays in Prisma 6 for high-speed retrieval of multi-step treatment procedures.",
+        vi: "Tận dụng kiểu dữ liệu String array gốc của PostgreSQL trong Prisma 6 để truy xuất siêu tốc các bước quy trình trị liệu.",
+      },
+      {
+        en: "Zod-validated Server Actions delivering rapid validation feedback and protecting the booking pipeline from invalid timestamps.",
+        vi: "Server Actions được xác thực bằng Zod phản hồi lỗi tức thì và bảo vệ luồng đặt lịch khỏi các mốc thời gian không hợp lệ.",
+      },
+    ],
+    challenges: [
+      {
+        challenge: {
+          en: "Balancing high visual elegance and fluid animations with optimal Core Web Vitals and zero render lag.",
+          vi: "Cân bằng giữa tính thẩm mỹ cao cấp, hiệu ứng chuyển động mượt mà với chỉ số Core Web Vitals tối ưu.",
+        },
+        resolution: {
+          en: "Implemented lazy-loaded Framer Motion viewport triggers combined with Next.js 15 React Server Components.",
+          vi: "Triển khai hiệu ứng Framer Motion theo cơ chế kích hoạt viewport kết hợp với React Server Components của Next.js 15.",
+        },
+      },
+    ],
+    learnings: [
+      {
+        en: "Mastered PostgreSQL array schema modeling with Prisma 6 and polished editorial frontend design principles.",
+        vi: "Nắm vững kỹ thuật mô hình hóa dữ liệu mảng trên PostgreSQL với Prisma 6 và nguyên lý thiết kế giao diện Editorial.",
+      },
+    ],
+    techStack: [
+      {
+        category: { en: "Frontend & Motion", vi: "Frontend & Chuyển Động" },
+        items: ["Next.js 15.1.3", "React 19", "Framer Motion", "Tailwind CSS", "Lucide React"],
+      },
+      {
+        category: { en: "Backend & Auth", vi: "Backend & Xác Thực" },
+        items: ["Next.js Server Actions", "Jose (JWT)", "Bcryptjs", "Zod 3.24.0"],
+      },
+      {
+        category: { en: "Database & DevOps", vi: "Cơ Sở Dữ Liệu & DevOps" },
+        items: ["PostgreSQL 16", "Prisma ORM 6.1.0", "Docker", "Docker Compose"],
+      },
+    ],
+    myRole: {
+      en: "Full-Stack Developer & UI/UX Designer — Built the editorial luxury interface, implemented Framer Motion animations, architected PostgreSQL array schemas with Prisma 6, and developed the booking & admin systems.",
+      vi: "Kỹ sư Full-Stack & UI/UX Designer — Xây dựng giao diện phong cách Editorial cao cấp, triển khai hiệu ứng Framer Motion, thiết kế schema dữ liệu mảng Prisma 6 trên PostgreSQL và phát triển hệ thống đặt lịch cùng cổng Admin.",
+    },
+    links: {
+      github: "https://github.com/TranHoDuyAnh/Lumea-Spa",
+    },
+  },
 ];

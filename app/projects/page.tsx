@@ -63,8 +63,8 @@ export default function ProjectsPage() {
               </h1>
               <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-2 max-w-xl">
                 {t({
-                  en: "Explore all 6 audited production codebases across distributed backends, SaaS platforms, green mobility, AI services, and modern frontend architectures.",
-                  vi: "Khám phá toàn bộ 6 hệ sinh thái phần mềm thực tế thuộc các lĩnh vực: backend phân tán, SaaS, giao thông xanh, dịch vụ AI và kiến trúc frontend hiện đại.",
+                  en: "Explore all 9 audited production codebases across distributed backends, SaaS platforms, healthcare systems, luxury wellness, green mobility, AI services, and modern frontend architectures.",
+                  vi: "Khám phá toàn bộ 9 hệ sinh thái phần mềm thực tế thuộc các lĩnh vực: backend phân tán, SaaS, hệ thống y tế, spa & wellness, giao thông xanh, dịch vụ AI và kiến trúc frontend hiện đại.",
                 })}
               </p>
             </div>

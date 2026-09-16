@@ -241,14 +241,14 @@ export const profile: ProfileData = {
   },
   stats: [
     {
-      value: "6",
+      value: "9",
       label: {
         en: "Production Architectures",
         vi: "Kiến trúc hoàn chỉnh",
       },
       sublabel: {
-        en: ".NET 8/9, NestJS, Next.js, React 19, Supabase, Flutter",
-        vi: ".NET 8/9, NestJS, Next.js, React 19, Supabase, Flutter",
+        en: ".NET 8/9, NestJS, Next.js 15, React 19, Prisma, Flutter",
+        vi: ".NET 8/9, NestJS, Next.js 15, React 19, Prisma, Flutter",
       },
     },
     {

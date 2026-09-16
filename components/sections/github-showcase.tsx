@@ -85,6 +85,39 @@ export function GithubShowcase() {
       langColor: "bg-teal-500",
       branch: "main",
     },
+    {
+      name: "Moonbean-Coffee",
+      url: "https://github.com/TranHoDuyAnh/Moonbean-Coffee",
+      description: {
+        en: "Editorial F&B coffee platform with Next.js 15, PostgreSQL 16, Prisma ORM 5, and Docker Compose.",
+        vi: "Nền tảng F&B phong cách Editorial với Next.js 15, PostgreSQL 16, Prisma ORM 5 và đóng gói Docker Compose.",
+      },
+      language: "TypeScript / Next.js 15",
+      langColor: "bg-amber-600",
+      branch: "main",
+    },
+    {
+      name: "DentalClinic-TamAnh",
+      url: "https://github.com/TranHoDuyAnh/DentalClinic-TamAnh",
+      description: {
+        en: "Medical-grade clinic platform with 2-way booking, doctor scheduling, Zod validation, and React 19.",
+        vi: "Hệ thống phòng khám nha khoa chuẩn y tế với đặt lịch 2 chiều, phân bổ bác sĩ, Zod và React 19.",
+      },
+      language: "TypeScript / React 19",
+      langColor: "bg-cyan-500",
+      branch: "main",
+    },
+    {
+      name: "Lumea-Spa",
+      url: "https://github.com/TranHoDuyAnh/Lumea-Spa",
+      description: {
+        en: "Luxury wellness & spa booking system with Framer Motion, Next.js 15, Prisma 6, and JWT CMS.",
+        vi: "Hệ thống spa & wellness cao cấp với Framer Motion, Next.js 15, Prisma 6 và cổng CMS xác thực JWT.",
+      },
+      language: "TypeScript / Framer Motion",
+      langColor: "bg-rose-500",
+      branch: "main",
+    },
   ];
 
   return (
